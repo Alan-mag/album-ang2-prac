@@ -14,6 +14,11 @@ import { AngularFireModule } from 'angularfire2';
 import { AdminComponent } from './admin/admin.component';
 import { EditAlbumComponent } from './edit-album/edit-album.component';
 
+// material design
+import { MaterialModule } from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import 'hammerjs';
+
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
   authDomain: masterFirebaseConfig.authDomain,
@@ -35,6 +40,8 @@ export const firebaseConfig = {
     BrowserModule,
     FormsModule,
     HttpModule,
+    BrowserAnimationsModule, //material dESIGN
+    MaterialModule.forRoot(),
     routing,
     AngularFireModule.initializeApp(firebaseConfig)
   ],
