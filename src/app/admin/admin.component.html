@@ -1,58 +1,64 @@
 
-<!--<div class="panel panel-default">-->
-  <!--<div class="panel-heading">
-    <h3 class="panel-title">Add New Album to Inventory</h3>
-  </div>-->
-  <md-card>
-  <md-card-title>Add New Album to Inventory</md-card-title>
-    <div>
-      <!--<div>
-        <label>Album Title:</label>
-        <br>
-        <input #newTitle>
-      </div>-->
-      <table>
-        <tr>
 
-      <td>
-      <md-input-container>
-        <input mdInput placeholder="Album Title" #newTitle>
-      </md-input-container>
-      </td>
-      <tr>
+  <md-toolbar>Add New Album to Inventory</md-toolbar>
+  <md-tab-group>
+    <md-tab label="New Album">
+      <md-card>
+        <div>
+          <table>
+            <tr>
 
-      <!--<div>
-        <label>Album Artist:</label>
-        <br>
-        <input #newArtist>
-      </div>-->
+            <td>
+              <md-input-container>
+                <input mdInput placeholder="Album Title" #newTitle>
+              </md-input-container>
+            </td>
+          <tr>
+          <!-- new row -->  
+          <tr>
+            <td>
+              <md-input-container>
+                <input mdInput placeholder="Album Artist" #newArtist>
+              </md-input-container>
+            </td>
+          </tr>
 
-      <tr>
-      <td>
-      <md-input-container>
-        <input mdInput placeholder="Album Artist" #newArtist>
-      </md-input-container>
-      </td>
-      </tr>
-
-      <!--<div>
-        <label>Album Description:</label>
-        <br>
-        <textarea #newDescription></textarea>
-      </div>-->
-
-      <tr>
-      <td>
-        <md-input-container>
-          <textarea mdInput placeholder="Album Description" #newDescription></textarea>
-        </md-input-container>
-      </td>
-      </tr>
-      </table>
-
-      <button md-raised-button (click)="submitForm(newTitle.value, newArtist.value, newDescription.value); newTitle.value=''; newArtist.value=''; newDescription.value=''">Add</button>
-    </div>
-  </md-card>
+          <!-- new row -->  
+          <tr>
+            <td>
+                <md-input-container>
+                  <textarea id="description-box" mdInput rows="7" placeholder="Album Description" #newDescription></textarea>
+                </md-input-container>
+            </td>
+          </tr>
+          </table>
+          <button md-raised-button (click)="submitForm(newTitle.value, newArtist.value, newDescription.value); newTitle.value=''; newArtist.value=''; newDescription.value=''">Add</button>
+        </div>
+      </md-card>
+    </md-tab>
+    <!-- Preview Tab -->
+    <md-tab label="Preview">
+     <md-card class="example-card">
+        <md-card-header>
+          <div md-card-avatar class="example-header-image"></div>
+          <md-card-title>Shiba Inu</md-card-title>
+          <md-card-subtitle>Dog Breed</md-card-subtitle>
+        </md-card-header>
+        <img md-card-image src="assets/img/examples/shiba2.jpg">
+        <md-card-content>
+          <p>
+            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+            bred for hunting.
+          </p>
+        </md-card-content>
+        <md-card-actions>
+          <button md-button>LIKE</button>
+          <button md-button>SHARE</button>
+        </md-card-actions>
+      </md-card>
+    </md-tab>
+  </md-tab-group>
 <!--</div>-->
 <div>
   <app-marketplace></app-marketplace>
