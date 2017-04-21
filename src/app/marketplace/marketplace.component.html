@@ -3,7 +3,7 @@
 
 <div *ngFor="let album of albums | async" class="panel panel-default">
     <md-card>
-        <h3 id="album-heading" (click)="goToDetailPage(album)" ><em>{{album.title}} by {{album.artist}}</em></h3>
+        <h3 id="album-heading" (click)="goToDetailPage(album)" ><em>{{album.title}} by {{album.artist}}</em></h3><button md-icon-button color-primary class="edit-icon">Edit</button>
         <div *ngIf="currentRoute === '/admin'">
             {{album.description}}
             <hr>
