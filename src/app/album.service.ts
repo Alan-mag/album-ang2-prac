@@ -28,6 +28,7 @@ export class AlbumService {
     albumEntryInFirebase.update({
       title: localUpdatedAlbum.title,
       artist: localUpdatedAlbum.artist,
+      imageurl: localUpdatedAlbum.imageurl,
       description: localUpdatedAlbum.description
     });
   }

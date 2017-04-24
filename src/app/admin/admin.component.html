@@ -1,31 +1,64 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Add New Album to Inventory</h3>
-  </div>
-  <div class="panel-body">
-    <div>
-      <div>
-        <label>Album Title:</label>
-        <br>
-        <input #newTitle>
-      </div>
 
-      <div>
-        <label>Album Artist:</label>
-        <br>
-        <input #newArtist>
-      </div>
 
-      <div>
-        <label>Album Description:</label>
-        <br>
-        <textarea #newDescription></textarea>
-      </div>
-      <button (click)="submitForm(newTitle.value, newArtist.value, newDescription.value); newTitle.value=''; newArtist.value=''; newDescription.value=''">Add</button>
-    </div>
-  </div>
-</div>
+  <md-toolbar>Add New Album to Inventory</md-toolbar>
+  <md-tab-group>
+    <md-tab label="New Album">
+      <md-card>
+        <div>
+          <table>
+            <tr>
 
+            <td>
+              <md-input-container>
+                <input mdInput placeholder="Album Title" #newTitle>
+              </md-input-container>
+            </td>
+          <tr>
+          <!-- new row -->  
+          <tr>
+            <td>
+              <md-input-container>
+                <input mdInput placeholder="Album Artist" #newArtist>
+              </md-input-container>
+              <md-input-container>
+                <input mdInput placeholder="Album Image Url" #newImageurl>
+              </md-input-container>
+            </td>
+          </tr>
+
+          <!-- new row -->  
+          <tr>
+            <td>
+                <md-input-container>
+                  <textarea id="description-box" mdInput rows="7" placeholder="Album Description" #newDescription></textarea>
+                </md-input-container>
+            </td>
+          </tr>
+          </table>
+          <button md-raised-button (click)="submitForm(newTitle.value, newArtist.value, newImageurl.value, newDescription.value); newTitle.value=''; newArtist.value=''; newImageurl.value=''; newDescription.value=''">Add</button>
+        </div>
+      </md-card>
+    </md-tab>
+    <!-- Preview Tab -->
+    <md-tab label="Preview">
+     <md-card class="example-card">
+        <md-card-header>
+          <div md-card-avatar class="example-header-image"></div>
+          <md-card-title><h3>{{newTitle.value}}</h3></md-card-title>
+          <md-card-subtitle>{{newArtist.value}}</md-card-subtitle>
+        </md-card-header>
+        <img md-card-image src={{newImageurl.value}}>
+        <md-card-content>
+          <p>{{newDescription.value}}</p>
+        </md-card-content>
+        <md-card-actions>
+          <!--<button md-button>LIKE</button>
+          <button md-button>SHARE</button>-->
+        </md-card-actions>
+      </md-card>
+    </md-tab>
+  </md-tab-group>
+<!--</div>-->
 <div>
   <app-marketplace></app-marketplace>
 </div>
