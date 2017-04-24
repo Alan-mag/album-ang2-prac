@@ -1,13 +1,31 @@
 <h2>Marketplace</h2>
 
 
-<div *ngFor="let album of albums | async" class="panel panel-default">
-    <md-card>
-        <h3 id="album-heading" (click)="goToDetailPage(album)" ><em>{{album.title}} by {{album.artist}}</em></h3><!--<button md-icon-button color-primary class="edit-icon">Edit</button>-->
-        <div *ngIf="currentRoute === '/admin'">
-            {{album.description}}
-            <hr>
-            <app-edit-album [selectedAlbum]="album"></app-edit-album>
-        </div>
-    </md-card>
+<div *ngIf="currentRoute === '/admin'">
+    <div *ngFor="let album of albums | async" class="panel panel-default">
+        <md-card>
+            <h3 id="album-heading" (click)="goToDetailPage(album)" ><em>{{album.title}} by {{album.artist}}</em></h3><!--<button md-icon-button color-primary class="edit-icon">Edit</button>-->
+            <div>
+                {{album.description}}
+                <hr>
+                <app-edit-album [selectedAlbum]="album"></app-edit-album>
+            </div>
+        </md-card>
+    </div>
 </div>
+
+<md-grid-list cols="4" rowHeight="1:1.6" gutterSize="2em" *ngIf="currentRoute === '/marketplace'">
+    <md-grid-tile *ngFor="let album of albums | async" colspan="1" rowspan="1">
+        <md-card class="album-card">
+            <md-card-header>
+                <div md-card-avatar></div>
+                <md-card-title><h3 id="album-heading" (click)="goToDetailPage(album)" ><em>{{album.title}}</em></h3></md-card-title>
+                <md-card-subtitle>by {{album.artist}}</md-card-subtitle>
+            </md-card-header>
+            <img  class="album-cover" (click)="goToDetailPage(album)" md-card-image src={{album.imageurl}}>
+                <md-card-content>
+                    <!--<p>{{album.description}}</p>-->
+                </md-card-content>
+        </md-card>  
+    </md-grid-tile>
+</md-grid-list>

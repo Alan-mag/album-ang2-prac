@@ -5,3 +5,16 @@
 .edit-icon {
     float: right;
 }
+
+.album-card {
+    width: 400px;
+    height: 300px;
+}
+
+md-grid-tile {
+   overflow: inherit;
+}
+
+.album-cover {
+    cursor: pointer;
+}

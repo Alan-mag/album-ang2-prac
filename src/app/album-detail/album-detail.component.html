@@ -1,7 +1,18 @@
-<div>
-  <img src={{albumToDisplay.imageurl}}>
-  <h3>{{(albumToDisplay | async)?.title}}</h3>
+<!--<div>
+  <h1>{{(albumToDisplay | async)?.title}}</h1>
+  <img src="{{(albumToDisplay | async)?.imageurl}}">
   <h4>{{(albumToDisplay | async)?.artist}}</h4>
   <p>{{(albumToDisplay | async)?.description}}</p>
-  <!--<p>{{(albumToDisplay | async)?.imageurl}}</p>-->
-</div>
+  <!--<p>{{(albumToDisplay | async)?.imageurl}}</p>
+</div>-->
+<h1>{{(albumToDisplay | async)?.title}}</h1>
+<h4>{{(albumToDisplay | async)?.artist}}</h4>
+<md-grid-list cols="2" rowHeight="1:1">
+  <md-grid-tile>
+    <p>{{(albumToDisplay | async)?.description}}</p>
+  </md-grid-tile>
+
+  <md-grid-tile>
+    <img src="{{(albumToDisplay | async)?.imageurl}}">
+  </md-grid-tile>
+</md-grid-list>
